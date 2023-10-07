@@ -55,6 +55,7 @@ def traduction1(text):
 # uvicorn main:app --reload
 
 
+
 #print(recup_texte("j ai des maux de ventre"))
 
 # import mysql.connector
