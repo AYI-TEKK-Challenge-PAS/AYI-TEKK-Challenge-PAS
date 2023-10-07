@@ -8,7 +8,7 @@ def record_audio():
     freq = 44100
 
     # Recording duration
-    duration = 10
+    duration = 5
 
     # Start recorder with the given values
     # of duration and sample frequency

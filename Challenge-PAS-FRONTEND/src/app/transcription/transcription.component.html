@@ -1,1 +1,75 @@
-<p>transcription works!</p>
+<br>
+<br>
+<h4 class="text-center">Lancer votre enregistrement en cliquant sur ce bouton rouge</h4>
+<p class="text-center">Arrete de parler lorsque le bouton ne clignote plus</p>
+
+<form class="text-center">
+  <button *ngIf="!record" class="notRec" (click)="recording()">Not Recording</button>
+
+  <button *ngIf="record" class="Rec">Recording</button>
+</form>
+
+<div *ngIf="transcript" class="text-center">
+  <div class="spinner-border" style="width: 7rem; height: 7rem;" role="status">
+    <span class="sr-only"></span>
+  </div>
+  <div class="spinner-grow" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="text-center" *ngIf="traductionResult!=null">
+  <div class="row">
+    <div class="col-6">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"><h4>WOLOF</h4></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" style="background-color: aliceblue">
+          {{transcriptionResult}}
+        </textarea>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"><h4>FRANCAIS</h4></label>
+        <textarea class="form-control" id="exampleFormControlTextarea2" rows="6" style="background-color: darkseagreen">
+          {{traductionResult}}
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary" (click)="extraction(traductionResult)">PASSER AU DIAGNOSTIC</button>
+        </div>
+    </div>
+
+</div>
+
+<!--===========-->
+<br>
+<br>
+<div class="card mb-3" *ngIf="extract">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="assets/valid.jpeg" width="150px" height="50px"
+        alt="image"
+        class="img-fluid rounded-start"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-text" *ngIf="extractionResult!=null && extract">
+          {{extractionResult}}
+        </div>
+        <p class="card-text" *ngIf="extractionResult==null && extract">
+          Pas de résultat trouvé
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

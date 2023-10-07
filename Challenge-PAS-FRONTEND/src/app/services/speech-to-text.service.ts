@@ -19,4 +19,14 @@ export class SpeechToTextService {
   enregistrement() {
     return this.httpClient.post(hostname + '/enregistrement',null);
   }
+
+  // Permet de faire l'enregistrement
+  traduction(texte:string) {
+    return this.httpClient.get(hostname + '/traduction/'+texte);
+  }
+
+  // Permet de faire l'enregistrement
+  extraction(texte:any) {
+    return this.httpClient.get(hostname + '/extract/'+texte);
+  }
 }
