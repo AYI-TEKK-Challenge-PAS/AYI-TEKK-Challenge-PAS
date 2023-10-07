@@ -38,7 +38,6 @@ export class TranscriptionComponent {
     });
   }
 
-
   transcription(){
     this.speechToText.transcription().subscribe(transcription => {
       this.transcriptionResult = transcription;
